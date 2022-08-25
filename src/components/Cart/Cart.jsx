@@ -98,11 +98,17 @@ export default function Cart() {
                     </div>
                     <div className="cart-product-price">${cartItem.price}</div>
                     <div className="cart-product-quantity">
-                      <button onClick={() => dispatch(decreaseCart(cartItem))}>
+                      <button onClick={() =>{
+                        dispatch(decreaseCart(cartItem))
+                        dispatch(getTotals())
+                        }}>
                         -
                       </button>
                       <div className="count">{cartItem.cartQuantity}</div>
-                      <button onClick={() => dispatch(addToCart(cartItem))}>
+                      <button onClick={() =>{
+                        dispatch(addToCart(cartItem))
+                        dispatch(getTotals())
+                        }}>
                         +
                       </button>
                     </div>
@@ -115,7 +121,10 @@ export default function Cart() {
             <div className="cart-summary">
               <button
                 className="clear-btn"
-                onClick={() => dispatch(clearCart())}
+                onClick={() =>{
+                  dispatch(clearCart())
+                  dispatch(getTotals())
+                }}
               >
                 Clear Cart
               </button>
